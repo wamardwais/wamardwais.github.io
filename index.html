@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAMARD | Designer & Directeur Créatif | Bodour Cosmétique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lora:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-bg: #0F0F0F;
+            --darker-bg: #050505;
+            --card-bg: #1a1a1a;
+            --red-primary: #C41E3A;
+            --red-accent: #E63946;
+            --red-light: #F77F88;
+            --gold-accent: #D4AF37;
+            --text-primary: #F5F5F5;
+            --text-secondary: #B0B0B0;
+            --border-subtle: rgba(196, 30, 58, 0.2);
+            --border-strong: rgba(196, 30, 58, 0.5);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: linear-gradient(180deg, var(--dark-bg) 0%, #1a0a0a 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Subtle texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(196, 30, 58, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(90deg, rgba(15, 15, 15, 0.98) 0%, rgba(26, 10, 10, 0.98) 100%);
+            border-bottom: 3px solid var(--red-primary);
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(196, 30, 58, 0.15), inset 0 -1px 0 var(--red-primary);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--red-primary);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--red-primary), var(--gold-accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--red-accent);
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        nav a {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--red-primary), var(--gold-accent));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--red-accent);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a0505 100%);
+            padding: 160px 50px 120px;
+            text-align: center;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--red-primary);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(196, 30, 58, 0.15) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .hero h1 span {
+            color: var(--red-primary);
+            display: block;
+            font-size: 90px;
+        }
+
+        .hero .role {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: var(--red-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 16px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            font-family: 'Lora', serif;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-accent) 100%);
+            color: var(--text-primary);
+            padding: 18px 60px;
+            border: 2px solid var(--red-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(196, 30, 58, 0.3);
+            cursor: pointer;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 12px 50px rgba(196, 30, 58, 0.5);
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, var(--red-accent) 0%, #ff4757 100%);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--red-primary), var(--gold-accent));
+            margin: 20px auto 0;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            max-width: 1400px;
+            margin: 120px auto;
+            padding: 0 50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: var(--red-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.95;
+            color: var(--text-secondary);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(30, 10, 10, 0.6) 100%);
+            padding: 30px;
+            border: 1px solid var(--border-strong);
+            border-left: 4px solid var(--red-primary);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.1), inset 0 0 20px rgba(196, 30, 58, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-box:hover {
+            border-color: var(--red-accent);
+            border-left-color: var(--gold-accent);
+            box-shadow: 0 12px 40px rgba(196, 30, 58, 0.2), inset 0 0 20px rgba(196, 30, 58, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .info-box:hover::before {
+            opacity: 1;
+        }
+
+        .info-box strong {
+            color: var(--red-accent);
+            display: block;
+            margin-bottom: 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .info-box span {
+            font-size: 14px;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
+        /* EXPERTISE SECTION */
+        .expertise {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.5) 0%, rgba(20, 5, 5, 0.5) 100%);
+            padding: 120px 50px;
+            border-top: 2px solid var(--red-primary);
+            border-bottom: 2px solid var(--red-primary);
+            margin: 120px 0;
+            position: relative;
+        }
+
+        .expertise-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .expertise-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(30, 10, 10, 0.8) 100%);
+            padding: 45px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.1), inset 0 0 25px rgba(196, 30, 58, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(196, 30, 58, 0.2) 0%, transparent 70%);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .expertise-card:hover {
+            border-color: var(--red-accent);
+            box-shadow: 0 15px 50px rgba(196, 30, 58, 0.2), inset 0 0 25px rgba(196, 30, 58, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .expertise-card:hover::before {
+            opacity: 1;
+            right: -50px;
+        }
+
+        .expertise-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--red-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .expertise-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .expertise-card li {
+            padding: 12px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .expertise-card li:last-child {
+            border-bottom: none;
+        }
+
+        .expertise-card li::before {
+            content: '▪';
+            color: var(--red-primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .expertise-card:hover li {
+            color: var(--text-primary);
+        }
+
+        /* BODOUR SECTION */
+        .bodour-section {
+            background: linear-gradient(135deg, rgba(30, 10, 10, 0.7) 0%, var(--dark-bg) 100%);
+            border-top: 2px solid var(--gold-accent);
+            border-bottom: 2px solid var(--gold-accent);
+            padding: 120px 50px;
+            margin-top: 120px;
+            position: relative;
+        }
+
+        .bodour-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .bodour-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .bodour-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gold-accent);
+            margin: 20px auto 0;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .bodour-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: start;
+        }
+
+        .bodour-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            margin-bottom: 25px;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bodour-text p {
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.95;
+            color: var(--text-secondary);
+        }
+
+        .bodour-highlight {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(196, 30, 58, 0.1) 100%);
+            border-left: 4px solid var(--gold-accent);
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.1), inset 0 0 20px rgba(212, 175, 55, 0.05);
+        }
+
+        .bodour-highlight strong {
+            color: var(--gold-accent);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .bodour-highlight ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .bodour-highlight li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .bodour-highlight li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold-accent);
+            font-weight: bold;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .tool-tag {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.15) 0%, rgba(212, 175, 55, 0.15) 100%);
+            border: 1px solid var(--red-primary);
+            padding: 14px 18px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.1);
+            cursor: pointer;
+        }
+
+        .tool-tag:hover {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.3) 0%, rgba(212, 175, 55, 0.3) 100%);
+            border-color: var(--gold-accent);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* BODOUR PROJECTS */
+        .bodour-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            background: linear-gradient(135deg, rgba(30, 10, 10, 0.5) 0%, rgba(26, 26, 26, 0.3) 100%);
+            padding: 40px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: inset 0 0 30px rgba(196, 30, 58, 0.05);
+        }
+
+        .project-item {
+            background: var(--card-bg);
+            padding: 25px;
+            border-left: 3px solid var(--gold-accent);
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.2);
+            transform: translateX(5px);
+        }
+
+        .project-item h4 {
+            color: var(--gold-accent);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .project-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            max-width: 1400px;
+            margin: 120px auto;
+            padding: 0 50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-content {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(30, 10, 10, 0.9) 100%);
+            padding: 80px;
+            border: 2px solid var(--red-primary);
+            box-shadow: 0 15px 50px rgba(196, 30, 58, 0.2), inset 0 0 40px rgba(196, 30, 58, 0.05);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(196, 30, 58, 0.15), transparent);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .contact-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--red-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-content p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(30, 10, 10, 0.8) 100%);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--red-accent);
+            box-shadow: 0 12px 35px rgba(196, 30, 58, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--red-accent);
+            margin-bottom: 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact-item span {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(90deg, var(--darker-bg) 0%, #1a0505 100%);
+            border-top: 2px solid var(--red-primary);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 50px 50px;
+            margin-top: 120px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--red-primary), var(--gold-accent), transparent);
+        }
+
+        footer p {
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        footer strong {
+            color: var(--red-primary);
+            font-weight: 600;
+        }
+
+        footer a {
+            color: var(--gold-accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--red-accent);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero h1 span {
+                font-size: 56px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .about-content,
+            .bodour-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            nav {
+                padding: 0 25px;
+            }
+
+            nav ul {
+                gap: 20px;
+                font-size: 11px;
+            }
+
+            .contact-content {
+                padding: 50px 30px;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <nav>
+        <a href="#" class="logo">WAMARD</a>
+        <ul>
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#bodour">Bodour</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>WAMARD<span>Designer & Directeur Créatif</span></h1>
+    <div class="role">Spécialiste en Contenu Premium & Marketing Digital</div>
+    <p>
+        Créateur de contenu visuel d'exception pour marques de luxe et beauté premium.<br>
+        Maîtrise complète : conception graphique, production vidéo, IA générative et stratégie marketing.<br>
+        <strong>Partenaire créatif exclusif de Bodour Cosmétique</strong>
+    </p>
+    <a href="#bodour" class="cta-button">Découvrir Mon Expertise</a>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <h2 class="section-title">À Propos</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <h2>Wais Moohamed WAMARD</h2>
+            <p>
+                Designer graphique et content creator d'origine malgache, âgé de 23 ans. Basé à Antsirabe, Madagascar,
+                je suis spécialisé dans la création visuelle premium et le marketing digital pour les marques leaders du luxe et de la beauté.
+            </p>
+            <p>
+                Je maîtrise l'intégralité de la chaîne créative : du concept initial à la production finale, 
+                en passant par la photographie, le montage vidéo, la génération par IA et la stratégie marketing digitale.
+            </p>
+            <p>
+                Passionné par la lecture (manga, light novels), les films cinématographiques de qualité, les arts martiaux 
+                (kickboxing et calisthénie), la cuisine et la natation. Ces passions nourrissent ma vision créative et informent mon approche du design.
+            </p>
+        </div>
+        <div class="info-grid">
+            <div class="info-box">
+                <strong>📍 Localisation</strong>
+                <span>1116C215 Mahazoarivo<br>Antsirabe<br>Madagascar</span>
+            </div>
+            <div class="info-box">
+                <strong>🎂 Âge & Expérience</strong>
+                <span>23 ans<br>Actuellement actif<br>Accepte nouveaux projets</span>
+            </div>
+            <div class="info-box">
+                <strong>🌍 Langues Maîtrisées</strong>
+                <span>Malagasy (natif)<br>Français (avancé)<br>Anglais (intermédiaire)<br>Allemand (débutant)</span>
+            </div>
+            <div class="info-box">
+                <strong>❤️ Passions Personnelles</strong>
+                <span>Lecture & Manga<br>Cinéma & Storytelling<br>Martial Arts & Sports<br>Cuisine & Gastronomie</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
+    <div class="expertise-container">
+        <h2 class="section-title">Domaines d'Expertise</h2>
+        <div class="expertise-grid">
+            
+            <div class="expertise-card">
+                <h3>Design Graphique</h3>
+                <ul>
+                    <li>Adobe Photoshop (Expert)</li>
+                    <li>Adobe Illustrator (Avancé)</li>
+                    <li>Canva (Expert)</li>
+                    <li>Création de logos</li>
+                    <li>Conception d'affiches</li>
+                    <li>Design d'emballages</li>
+                    <li>Identité visuelle</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>Production Vidéo & IA</h3>
+                <ul>
+                    <li>Adobe Premiere Pro (Avancé)</li>
+                    <li>CapCut Pro (Expert)</li>
+                    <li>Higgsfield (Expert)</li>
+                    <li>FLOW (Expert)</li>
+                    <li>Midjourney (Avancé)</li>
+                    <li>Cool Edit 2.0 (Audio)</li>
+                    <li>Montage & effets visuels</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>Marketing Digital</h3>
+                <ul>
+                    <li>Meta Business Manager</li>
+                    <li>Google Ads (Avancé)</li>
+                    <li>TikTok Ads Manager</li>
+                    <li>SEO & Rédaction</li>
+                    <li>Community Management</li>
+                    <li>Stratégie contenu</li>
+                    <li>Analyse & reporting</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>Conception Web</h3>
+                <ul>
+                    <li>Visual Studio Code</li>
+                    <li>HTML & CSS (Avancé)</li>
+                    <li>Web Design</li>
+                    <li>UI/UX Design</li>
+                    <li>Responsive Design</li>
+                    <li>Création de sites</li>
+                    <li>Optimisation web</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>Outils Bureautique</h3>
+                <ul>
+                    <li>Microsoft Office Suite</li>
+                    <li>Word (Expert)</li>
+                    <li>Excel (Avancé)</li>
+                    <li>PowerPoint (Avancé)</li>
+                    <li>Google Workspace</li>
+                    <li>Outils collaboratifs</li>
+                    <li>Gestion de projets</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>Spécialisation Marques</h3>
+                <ul>
+                    <li>Scripts UGC (Français)</li>
+                    <li>Bodour Cosmétique</li>
+                    <li>Beauty Content</li>
+                    <li>Product Photography</li>
+                    <li>Lifestyle Styling</li>
+                    <li>Brand Strategy</li>
+                    <li>Campaigns intégrées</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- BODOUR EXPERTISE -->
+<section class="bodour-section" id="bodour">
+    <div class="bodour-container">
+        <h3 class="bodour-title">Expertise Bodour Cosmétique</h3>
+        <div class="bodour-content">
+            <div class="bodour-text">
+                <h2>Partenaire Créatif Exclusif</h2>
+                <p>
+                    Je suis le partenaire créatif principal et exclusif de <strong>Bodour Cosmétique</strong>,
+                    marque leader en soins cutanés premium basée sur la boue naturelle de la Mer Morte.
+                </p>
+                <p>
+                    Mon rôle : transformer la vision de Bodour en campagnes marketing cohérentes, 
+                    impactantes et performantes, du concept à la publication sur tous les canaux digitaux.
+                </p>
+                <div class="bodour-highlight">
+                    <strong>📋 Responsabilités Principales :</strong>
+                    <ul>
+                        <li>Développement complet de scripts UGC en français (storytelling + tutoriels)</li>
+                        <li>Génération de vidéos IA (FLOW, Higgsfield, Midjourney)</li>
+                        <li>Photographie produit premium et contenu lifestyle</li>
+                        <li>Direction créative et concept visuel pour campagnes</li>
+                        <li>Création de contenu éducatif (bienfaits, rituels, conseils peau)</li>
+                        <li>Gestion communautaire réseaux sociaux</li>
+                        <li>Stratégie contenu multi-canal</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 30px; color: var(--text-primary); font-weight: 600;">
+                    <strong>Résultats Concrets :</strong> 50+ assets créés • 20+ vidéos IA générées • 
+                    Campagnes multi-canal cohérentes • Scripts français premium • Engagement accru
+                </p>
+            </div>
+            <div>
+                <div class="tools-grid">
+                    <span class="tool-tag">UGC Scripts</span>
+                    <span class="tool-tag">AI Videos</span>
+                    <span class="tool-tag">FLOW</span>
+                    <span class="tool-tag">Higgsfield</span>
+                    <span class="tool-tag">Midjourney</span>
+                    <span class="tool-tag">Photography</span>
+                    <span class="tool-tag">Storytelling</span>
+                    <span class="tool-tag">Campaigns</span>
+                    <span class="tool-tag">Lifestyle</span>
+                    <span class="tool-tag">Community</span>
+                    
+                </div>
+
+                <h3 style="margin-top: 50px; font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold-accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px;">Projets Réalisés</h3>
+                
+                <div class="bodour-projects">
+                    <div class="project-item">
+                        <h4>Masque le Classique</h4>
+                        <p>Suite complète de tutoriels d'application, photographies studio et lifestyle, vidéos IA, scripts storytelling français</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Masque 3 en 1 le Magique</h4>
+                        <p>Campagnes vidéo IA cinématographiques style luxury, prompts optimisés Midjourney, assets graphiques premium</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Masque d'eau de Rose</h4>
+                        <p>Contenu lifestyle & wellness, vidéos avatars FLOW avec presenters variés, contenu éducatif complet</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Scripts UGC Complets</h4>
+                        <p>Développement de 10+ scripts variés en français pour presenters masculins et féminins, avec variations tonalité</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Prompts IA Optimisés</h4>
+                        <p>Création de prompts détaillés pour IA avec disposition typographique précise, cohérence visuelle brand, variations par produit</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Gestion Réseaux Sociaux</h4>
+                        <p>Community management quotidien, création contenu, interactions audience, stratégie cross-platform</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2 class="section-title">Contactez-Moi</h2>
+    <div class="contact-content">
+        <h2>Discutons de Votre Projet</h2>
+        <p>
+            Vous avez un projet créatif? Une marque à développer? Un contenu à créer?<br>
+            Je suis disponible pour discuter et transformer votre vision en réalité exceptionnelle.
+        </p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>📧 Email Principal</strong>
+                <span>wamard.contact@email.com</span>
+            </div>
+            <div class="contact-item">
+                <strong>📱 WhatsApp</strong>
+                <span>+261 34 XX XXX XXX<br><em style="font-size: 12px; color: var(--text-secondary);">(Réponse rapide)</em></span>
+            </div>
+            <div class="contact-item">
+                <strong>🌍 Localisation</strong>
+                <span>Antsirabe, Madagascar<br><em style="font-size: 12px; color: var(--text-secondary);">Fuseau horaire UTC+3</em></span>
+            </div>
+            <div class="contact-item">
+                <strong>🕐 Disponibilité</strong>
+                <span>Actuellement disponible<br><em style="font-size: 12px; color: var(--text-secondary);">Accepte projets courts et longs termes</em></span>
+            </div>
+        </div>
+        <div style="margin-top: 50px;">
+            <a href="mailto:wamard.contact@email.com" class="cta-button">Envoyer Un Message</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>© 2026 WAMARD</strong> | Designer Graphique & Directeur Créatif</p>
+    <p>Spécialisé en contenu premium pour marques de luxe • Partenaire créatif <a href="#">Bodour Cosmétique</a></p>
+    <p style="margin-top: 20px; font-size: 12px; color: var(--text-secondary);">
+        "La créativité guidée par la stratégie transforme les visions en résultats mesurables. C'est ma philosophie."
+    </p>
+    <p style="margin-top: 15px; font-size: 11px; opacity: 0.7;">
+        Madagascar • Création visuelle • Stratégie marketing • Innovation digitale
+    </p>
+</footer>
+
+</body>
+</html>
